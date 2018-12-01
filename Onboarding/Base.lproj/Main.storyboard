@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina3_5" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -16,15 +16,15 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="Onboarding" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUH-6s-0WT">
-                                <rect key="frame" x="16" y="48" width="288" height="384"/>
+                                <rect key="frame" x="20.666666666666657" y="73.666666666666686" width="372.66666666666674" height="588.66666666666652"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiT-jX-Rpr">
-                                <rect key="frame" x="251" y="430" width="53" height="34"/>
+                                <rect key="frame" x="340.33333333333331" y="670.33333333333337" width="53" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Далее">
                                     <color key="titleColor" red="0.89411764705882346" green="0.47407114505767822" blue="0.20315688848495483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,9 +39,10 @@
                             <constraint firstItem="KUH-6s-0WT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9EA-jH-5BM"/>
                             <constraint firstItem="KUH-6s-0WT" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="Hkw-of-JoM"/>
                             <constraint firstItem="SiT-jX-Rpr" firstAttribute="trailing" secondItem="KUH-6s-0WT" secondAttribute="trailing" id="YYX-jo-Ax7"/>
+                            <constraint firstItem="SiT-jX-Rpr" firstAttribute="top" secondItem="KUH-6s-0WT" secondAttribute="bottom" constant="8" id="a3O-Ji-yBo"/>
                             <constraint firstItem="KUH-6s-0WT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="a97-Od-JCd"/>
                             <constraint firstItem="KUH-6s-0WT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g5S-vo-oaz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SiT-jX-Rpr" secondAttribute="bottom" constant="16" id="j4o-EX-bZh"/>
+                            <constraint firstItem="SiT-jX-Rpr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jzm-Go-FVi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

@@ -23,6 +23,7 @@ class OnboardingViewController: UIViewController {
     ]
     var slideViews: [SlideView] = []
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -33,19 +34,23 @@ class OnboardingViewController: UIViewController {
     }
     
     func layOutSlides () {
-        for i in 0..<products.count {
+        for index in 0..<products.count {
             var frame = self.placeholderView.frame
-            let dx = CGFloat(standart * i)
-            let dy = CGFloat(standart * i)
-            let yOffset = CGFloat(doubleStandart * i)
+            let dx = CGFloat(standart * index)
+            let dy = CGFloat(standart * index)
+            let yOffset = CGFloat(doubleStandart * index)
             frame = frame.insetBy(dx: dx, dy: dy).offsetBy(dx: 0, dy: yOffset)
-            let slideView = SlideView.init(frame: frame)
-            slideView.productImageView.image = UIImage(named: products[i].imageName)
-            slideView.descriptionLabel.text = products[i].productDescription
+
+            let slideView = SlideView.init(frame: frame, imageName: products[index].imageName, productDescription: products[index].productDescription)
+            
             view.addSubview(slideView)
             view.sendSubview(toBack: slideView)
+            let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(OnboardingViewController.onLeftSwipe(recognizer:)))
+            recognizer.direction = .left
+            slideView.addGestureRecognizer(recognizer)
             slideViews.append(slideView)
         }
+        view.bringSubview(toFront: slideViews.first!)
     }
     
     @IBAction func onNextButtonTapped(_ sender: UIButton) {
@@ -61,7 +66,8 @@ class OnboardingViewController: UIViewController {
                 slideViews[index].frame = tempFrame!
                 tempFrame = fr
             }
-            slideViews.removeFirst()
+            slideViews.removeFirst().removeFromSuperview()
+            view.bringSubview(toFront: slideViews.first!)
             if slideViews.count == 1 {
                 nextButton.setTitle("Закрыть", for: .normal)
                 return
@@ -69,6 +75,24 @@ class OnboardingViewController: UIViewController {
         } else {
             return
         }
+    }
+    
+    @objc func onLeftSwipe(recognizer: UISwipeGestureRecognizer) {
+        switch recognizer.state {
+        case .ended:
+            goToNextSlide()
+        default:
+            return
+        }
+    }
+    
+    func animate(animations: @escaping () -> ()) {
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: TimeInterval.init(1),
+            delay: TimeInterval.init(0),
+            options: [],
+            animations: animations,
+            completion: nil)
     }
 }
 

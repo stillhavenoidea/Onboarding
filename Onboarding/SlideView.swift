@@ -17,6 +17,7 @@ class SlideView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,8 +39,11 @@ class SlideView: UIView {
     func setupXIB() {
         Bundle.main.loadNibNamed("SlideView", owner: self, options: nil)
         contentView.frame = bounds
+//        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+//        contentView.autoresizesSubviews = true
         contentView.layer.cornerRadius = standart
         contentView.clipsToBounds = true
+        contentView.isUserInteractionEnabled = true
         addSubview(contentView)
     }
     
@@ -48,8 +52,8 @@ class SlideView: UIView {
     }
     
     func configureView() {
-        layer.cornerRadius = standart
         isOpaque = true
+        layer.cornerRadius = standart
         layer.shadowOffset = CGSize(width: standart, height: standart)
         layer.shadowRadius = doubleStandart
         layer.shadowOpacity = opacityValue
