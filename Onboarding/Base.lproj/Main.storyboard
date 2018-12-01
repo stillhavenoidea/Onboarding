@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,25 +16,39 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="Onboarding" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUH-6s-0WT" customClass="SlideView" customModule="Onboarding" customModuleProvider="target">
-                                <rect key="frame" x="43" y="95" width="289" height="476"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="476" id="Q1k-yA-bVv"/>
-                                    <constraint firstAttribute="width" constant="289" id="c58-H4-fiU"/>
-                                </constraints>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KUH-6s-0WT">
+                                <rect key="frame" x="16" y="48" width="288" height="384"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SiT-jX-Rpr">
+                                <rect key="frame" x="251" y="430" width="53" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Далее">
+                                    <color key="titleColor" red="0.89411764705882346" green="0.47407114505767822" blue="0.20315688848495483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNextButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cev-ia-LT9"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KUH-6s-0WT" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9EA-jH-5BM"/>
+                            <constraint firstItem="KUH-6s-0WT" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.8" id="Hkw-of-JoM"/>
+                            <constraint firstItem="SiT-jX-Rpr" firstAttribute="trailing" secondItem="KUH-6s-0WT" secondAttribute="trailing" id="YYX-jo-Ax7"/>
+                            <constraint firstItem="KUH-6s-0WT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.9" id="a97-Od-JCd"/>
                             <constraint firstItem="KUH-6s-0WT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g5S-vo-oaz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SiT-jX-Rpr" secondAttribute="bottom" constant="16" id="j4o-EX-bZh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="nextButton" destination="SiT-jX-Rpr" id="o41-T6-atb"/>
+                        <outlet property="slideView" destination="KUH-6s-0WT" id="beQ-eP-iOh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
