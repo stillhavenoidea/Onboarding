@@ -14,7 +14,7 @@
 		1F4C8DAC21B297CD002ECA6C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F4C8DAA21B297CD002ECA6C /* LaunchScreen.storyboard */; };
 		1F4C8DB421B29849002ECA6C /* SlideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4C8DB321B29849002ECA6C /* SlideView.xib */; };
 		1F4C8DB621B2986B002ECA6C /* SlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C8DB521B2986B002ECA6C /* SlideView.swift */; };
-		1F4C8DB821B2A1FB002ECA6C /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C8DB721B2A1FB002ECA6C /* Slide.swift */; };
+		1F4C8DB821B2A1FB002ECA6C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4C8DB721B2A1FB002ECA6C /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		1F4C8DAD21B297CD002ECA6C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F4C8DB321B29849002ECA6C /* SlideView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideView.xib; sourceTree = "<group>"; };
 		1F4C8DB521B2986B002ECA6C /* SlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideView.swift; sourceTree = "<group>"; };
-		1F4C8DB721B2A1FB002ECA6C /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		1F4C8DB721B2A1FB002ECA6C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 				1F4C8DA521B297CD002ECA6C /* Main.storyboard */,
 				1F4C8DB321B29849002ECA6C /* SlideView.xib */,
 				1F4C8DB521B2986B002ECA6C /* SlideView.swift */,
-				1F4C8DB721B2A1FB002ECA6C /* Slide.swift */,
+				1F4C8DB721B2A1FB002ECA6C /* Product.swift */,
 				1F4C8DA821B297CD002ECA6C /* Assets.xcassets */,
 				1F4C8DAA21B297CD002ECA6C /* LaunchScreen.storyboard */,
 				1F4C8DAD21B297CD002ECA6C /* Info.plist */,
@@ -149,7 +149,7 @@
 				1F4C8DB621B2986B002ECA6C /* SlideView.swift in Sources */,
 				1F4C8DA421B297CD002ECA6C /* OnboardingViewController.swift in Sources */,
 				1F4C8DA221B297CD002ECA6C /* AppDelegate.swift in Sources */,
-				1F4C8DB821B2A1FB002ECA6C /* Slide.swift in Sources */,
+				1F4C8DB821B2A1FB002ECA6C /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

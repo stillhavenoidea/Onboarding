@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Slide {
+struct Product {
     let imageName: String
     let productDescription: String
 }

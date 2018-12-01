@@ -47,7 +47,7 @@
                     </view>
                     <connections>
                         <outlet property="nextButton" destination="SiT-jX-Rpr" id="o41-T6-atb"/>
-                        <outlet property="slideView" destination="KUH-6s-0WT" id="beQ-eP-iOh"/>
+                        <outlet property="placeholderView" destination="KUH-6s-0WT" id="beQ-eP-iOh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

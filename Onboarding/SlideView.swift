@@ -10,6 +10,10 @@ import UIKit
 
 class SlideView: UIView {
     
+    private let standart: CGFloat = 8
+    private let doubleStandart: CGFloat = 16
+    private let opacityValue: Float = 0.5
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -34,7 +38,7 @@ class SlideView: UIView {
     func setupXIB() {
         Bundle.main.loadNibNamed("SlideView", owner: self, options: nil)
         contentView.frame = bounds
-        contentView.layer.cornerRadius = 8
+        contentView.layer.cornerRadius = standart
         contentView.clipsToBounds = true
         addSubview(contentView)
     }
@@ -44,11 +48,11 @@ class SlideView: UIView {
     }
     
     func configureView() {
-        layer.cornerRadius = 8
+        layer.cornerRadius = standart
         isOpaque = true
-        layer.shadowOffset = CGSize(width: 8, height: 8)
-        layer.shadowRadius = 16
-        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: standart, height: standart)
+        layer.shadowRadius = doubleStandart
+        layer.shadowOpacity = opacityValue
         layer.shadowColor = UIColor.lightGray.cgColor
     }
 }

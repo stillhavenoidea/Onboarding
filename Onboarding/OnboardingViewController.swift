@@ -5,20 +5,21 @@
 //  Created by MyMac on 01.12.18.
 //  Copyright © 2018 SoftDevelopingOrganizationName. All rights reserved.
 //
-let STANDART = 8
-let DOUBLE_STANDART = 16
 
 import UIKit
 
 class OnboardingViewController: UIViewController {
     
-    @IBOutlet weak var slideView: SlideView!
+    private let standart = 8
+    private let doubleStandart = 16
+    
+    @IBOutlet weak var placeholderView: UIView!
     @IBOutlet weak var nextButton: UIButton!
     
-    var slides: [Slide] = [
-        Slide.init(imageName: "image1", productDescription: "Многострочное описание первого продукта"),
-        Slide.init(imageName: "image2", productDescription: "Многострочное описание второго продукта"),
-        Slide.init(imageName: "image3", productDescription: "Многострочное описание третьего продукта")
+    var products: [Product] = [
+        Product.init(imageName: "image1", productDescription: "Многострочное описание первого продукта"),
+        Product.init(imageName: "image2", productDescription: "Многострочное описание второго продукта"),
+        Product.init(imageName: "image3", productDescription: "Многострочное описание третьего продукта")
     ]
     var slideViews: [SlideView] = []
     
@@ -32,22 +33,42 @@ class OnboardingViewController: UIViewController {
     }
     
     func layOutSlides () {
-        for i in 0..<slides.count {
-            var frame = self.slideView.frame
-            let dx = CGFloat(STANDART * i)
-            let dy = CGFloat(STANDART * i)
-            let yOffset = CGFloat(DOUBLE_STANDART * i)
+        for i in 0..<products.count {
+            var frame = self.placeholderView.frame
+            let dx = CGFloat(standart * i)
+            let dy = CGFloat(standart * i)
+            let yOffset = CGFloat(doubleStandart * i)
             frame = frame.insetBy(dx: dx, dy: dy).offsetBy(dx: 0, dy: yOffset)
             let slideView = SlideView.init(frame: frame)
-            slideView.productImageView.image = UIImage(named: slides[i].imageName)
-            slideView.descriptionLabel.text = slides[i].productDescription
+            slideView.productImageView.image = UIImage(named: products[i].imageName)
+            slideView.descriptionLabel.text = products[i].productDescription
             view.addSubview(slideView)
             view.sendSubview(toBack: slideView)
+            slideViews.append(slideView)
         }
     }
     
     @IBAction func onNextButtonTapped(_ sender: UIButton) {
-        
+        goToNextSlide()
+    }
+    
+    @objc func goToNextSlide() {
+        if slideViews.count > 1 {
+            slideViews.first?.isHidden = true
+            var tempFrame = slideViews.first?.frame
+            for index in 1..<slideViews.count {
+                let fr = slideViews[index].frame
+                slideViews[index].frame = tempFrame!
+                tempFrame = fr
+            }
+            slideViews.removeFirst()
+            if slideViews.count == 1 {
+                nextButton.setTitle("Закрыть", for: .normal)
+                return
+            }
+        } else {
+            return
+        }
     }
 }
 
