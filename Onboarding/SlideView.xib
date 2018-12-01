@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SlideView" customModule="Onboarding" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="nkF-7X-Yeo"/>
+                <outlet property="descriptionLabel" destination="17y-AE-jJs" id="KgQ-0X-PBz"/>
+                <outlet property="productImage" destination="jjn-Tz-SdZ" id="iG3-Ic-A0D"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="jjn-Tz-SdZ">
+                    <rect key="frame" x="37" y="174.5" width="300" height="318"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jjn-Tz-SdZ" secondAttribute="height" multiplier="50:53" id="an7-ad-lfZ"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Многострочное описание продукта на иностранном языке" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="17y-AE-jJs">
+                    <rect key="frame" x="16" y="492" width="343" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jjn-Tz-SdZ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="3JA-kl-tuf"/>
+                <constraint firstItem="17y-AE-jJs" firstAttribute="top" secondItem="jjn-Tz-SdZ" secondAttribute="bottom" id="6xc-pt-xrE"/>
+                <constraint firstItem="jjn-Tz-SdZ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="BVP-vC-r0r"/>
+                <constraint firstItem="17y-AE-jJs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="jfs-hM-Qos"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="17y-AE-jJs" secondAttribute="bottom" constant="16" id="mrN-qX-47S"/>
+                <constraint firstItem="jjn-Tz-SdZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="tdH-Gv-cAe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="17y-AE-jJs" secondAttribute="trailing" constant="16" id="vOP-hY-oDo"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="image1" width="200" height="212"/>
+    </resources>
+</document>
