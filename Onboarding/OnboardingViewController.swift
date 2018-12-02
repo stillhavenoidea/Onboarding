@@ -9,12 +9,15 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
-    
+    private let halfStandart = 4
     private let standart = 8
     private let doubleStandart = 16
     
     @IBOutlet weak var placeholderView: UIView!
     @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var bottomView: UIView!
     
     var products: [Product] = [
         Product.init(imageName: "image1", productDescription: "Многострочное описание первого продукта"),
@@ -30,18 +33,28 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        configureBackgroundViews()
         layoutSlides()
+    }
+    
+    func configureBackgroundViews() {
+        topView.layer.cornerRadius = CGFloat(halfStandart)
+        bottomView.layer.cornerRadius = CGFloat(halfStandart)
     }
     
     func layoutSlides () {
         for index in (0..<products.count).reversed() {
             let slideView = slideViewFor(index: index)
             placeholderView.addSubview(slideView)
-            let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(OnboardingViewController.onLeftSwipe(recognizer:)))
-            recognizer.direction = .left
-            slideView.addGestureRecognizer(recognizer)
+            addLeftSwipeRecognizer(for: slideView)
             slideViews.append(slideView)
         }
+    }
+    
+    func addLeftSwipeRecognizer(for slideView: SlideView) {
+        let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(OnboardingViewController.onLeftSwipe(recognizer:)))
+        recognizer.direction = .left
+        slideView.addGestureRecognizer(recognizer)
     }
     
     func slideViewFor(index: Int) -> SlideView {
