@@ -9,6 +9,7 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
+    
     private let halfStandart = 4
     private let standart = 8
     private let doubleStandart = 16
