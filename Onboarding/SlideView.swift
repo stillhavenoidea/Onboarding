@@ -39,8 +39,6 @@ class SlideView: UIView {
     func setupXIB() {
         Bundle.main.loadNibNamed("SlideView", owner: self, options: nil)
         contentView.frame = bounds
-//        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-//        contentView.autoresizesSubviews = true
         contentView.layer.cornerRadius = standart
         contentView.clipsToBounds = true
         contentView.isUserInteractionEnabled = true

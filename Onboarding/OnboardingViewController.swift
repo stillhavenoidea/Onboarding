@@ -30,27 +30,30 @@ class OnboardingViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        layOutSlides()
+        layoutSlides()
     }
     
-    func layOutSlides () {
-        for index in 0..<products.count {
-            var frame = self.placeholderView.frame
-            let dx = CGFloat(standart * index)
-            let dy = CGFloat(standart * index)
-            let yOffset = CGFloat(doubleStandart * index)
-            frame = frame.insetBy(dx: dx, dy: dy).offsetBy(dx: 0, dy: yOffset)
-
-            let slideView = SlideView.init(frame: frame, imageName: products[index].imageName, productDescription: products[index].productDescription)
-            
-            view.addSubview(slideView)
-            view.sendSubview(toBack: slideView)
+    func layoutSlides () {
+        for index in (0..<products.count).reversed() {
+            let slideView = slideViewFor(index: index)
+            placeholderView.addSubview(slideView)
             let recognizer = UISwipeGestureRecognizer(target: self, action: #selector(OnboardingViewController.onLeftSwipe(recognizer:)))
             recognizer.direction = .left
             slideView.addGestureRecognizer(recognizer)
             slideViews.append(slideView)
         }
-        view.bringSubview(toFront: slideViews.first!)
+    }
+    
+    func slideViewFor(index: Int) -> SlideView {
+        var frame = self.placeholderView.bounds
+        let dx = CGFloat(standart * index)
+        let dy = CGFloat(standart * index)
+        let yOffset = CGFloat(doubleStandart * index)
+        frame = frame.insetBy(dx: dx, dy: dy).offsetBy(dx: 0, dy: yOffset)
+        return SlideView.init(
+            frame: frame, imageName:
+            products[index].imageName,
+            productDescription: products[index].productDescription)
     }
     
     @IBAction func onNextButtonTapped(_ sender: UIButton) {
@@ -59,20 +62,19 @@ class OnboardingViewController: UIViewController {
     
     @objc func goToNextSlide() {
         if slideViews.count > 1 {
-            slideViews.first?.isHidden = true
-            var tempFrame = slideViews.first?.frame
-            for index in 1..<slideViews.count {
-                let fr = slideViews[index].frame
-                slideViews[index].frame = tempFrame!
-                tempFrame = fr
+            for index in 0..<slideViews.count - 1 {
+                slideViews[index].frame = slideViews[index + 1].frame
             }
-            slideViews.removeFirst().removeFromSuperview()
-            view.bringSubview(toFront: slideViews.first!)
-            if slideViews.count == 1 {
-                nextButton.setTitle("Закрыть", for: .normal)
-                return
-            }
+            slideViews.removeLast().removeFromSuperview()
+            lastSlideCheck()
         } else {
+            return
+        }
+    }
+    
+    func lastSlideCheck() {
+        if slideViews.count == 1 {
+            nextButton.setTitle("Закрыть", for: .normal)
             return
         }
     }
@@ -84,15 +86,6 @@ class OnboardingViewController: UIViewController {
         default:
             return
         }
-    }
-    
-    func animate(animations: @escaping () -> ()) {
-        UIViewPropertyAnimator.runningPropertyAnimator(
-            withDuration: TimeInterval.init(1),
-            delay: TimeInterval.init(0),
-            options: [],
-            animations: animations,
-            completion: nil)
     }
 }
 
