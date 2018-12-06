@@ -28,10 +28,6 @@ class OnboardingViewController: UIViewController {
     var slideViews: [SlideView] = []
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         configureBackgroundViews()
@@ -81,15 +77,12 @@ class OnboardingViewController: UIViewController {
             }
             slideViews.removeLast().removeFromSuperview()
             lastSlideCheck()
-        } else {
-            return
         }
     }
     
     func lastSlideCheck() {
         if slideViews.count == 1 {
             nextButton.setTitle("Закрыть", for: .normal)
-            return
         }
     }
     
